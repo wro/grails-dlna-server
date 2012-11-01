@@ -9,11 +9,10 @@ hibernate {
     cache.use_query_cache = false
     cache.region.factory_class = 'net.sf.ehcache.hibernate.EhCacheRegionFactory'
 }
-// environment specific settings
 environments {
     development {
         dataSource {
-            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
+            dbCreate = "create-drop"
             url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
         }
     }
@@ -25,8 +24,11 @@ environments {
     }
     production {
         dataSource {
-            dbCreate = "update"
-            url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+            driverClassName = 'com.mysql.jdbc.Driver'
+            dbCreate = "none"
+            url = "jdbc:mysql://localhost/dlna_server"
+            username = 'root'
+            password = 'root'
             pooled = true
             properties {
                maxActive = -1
