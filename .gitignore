@@ -1,3 +1,7 @@
 .classpath
 .project
+.iml
+.idea
+out/
 classes/
+
