@@ -1,9 +1,10 @@
 package spring
 
 import grails.plugin.spock.IntegrationSpec
+import media.source.interactor.list.ListMediaSourcesInteractor
 import media.source.repository.gorm.GormMediaSourceRepository
 import org.springframework.context.ApplicationContext
-import unit.media.source.interactor.AddMediaSourceInteractor
+import media.source.interactor.add.AddMediaSourceInteractor
 
 class SpringResourcesSpec extends IntegrationSpec {
 
@@ -29,6 +30,15 @@ class SpringResourcesSpec extends IntegrationSpec {
 
     private AddMediaSourceInteractor getAddMediaSource() {
         context.getBean(AddMediaSourceInteractor)
+    }
+
+    def "list media sources interactor should have been wired"() {
+        expect:
+        listMediaSources.repository == mediaSourceRepository
+    }
+
+    private ListMediaSourcesInteractor getListMediaSources() {
+        context.getBean(ListMediaSourcesInteractor)
     }
 
 }

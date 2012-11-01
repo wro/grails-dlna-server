@@ -1,6 +1,8 @@
-package unit.media.source.interactor
+package unit.media.source.interactor.add
 
 import media.source.MediaSource
+import media.source.interactor.add.AddMediaSource
+import media.source.interactor.add.AddMediaSourceInteractor
 import media.source.repository.fake.FakeMediaSourceRepository
 import spock.lang.Specification
 
