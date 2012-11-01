@@ -1,6 +1,7 @@
 package spring
 
 import grails.plugin.spock.IntegrationSpec
+import media.source.MediaSourceResourceController
 import media.source.interactor.list.ListMediaSourcesInteractor
 import media.source.interactor.remove.RemoveMediaSourceInteractor
 import media.source.repository.gorm.GormMediaSourceRepository
@@ -42,13 +43,24 @@ class SpringResourcesSpec extends IntegrationSpec {
         context.getBean(ListMediaSourcesInteractor)
     }
 
-    def "test"() {
+    def "remove media source interactor should have been wired"() {
         expect:
         removeMediaSource.repository == mediaSourceRepository
     }
 
     private RemoveMediaSourceInteractor getRemoveMediaSource() {
         context.getBean(RemoveMediaSourceInteractor)
+    }
+
+    def "media source resource should have been wired"() {
+        expect:
+        mediaSourceResource.addMediaSource == addMediaSource
+        mediaSourceResource.listMediaSources == listMediaSources
+        mediaSourceResource.removeMediaSource == removeMediaSource
+    }
+
+    private MediaSourceResourceController getMediaSourceResource() {
+        context.getBean(MediaSourceResourceController)
     }
 
 }

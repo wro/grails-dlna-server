@@ -24,7 +24,6 @@ grails.project.dependency.resolution = {
 
     dependencies {
         runtime 'mysql:mysql-connector-java:5.1.20'
-        compile "org.spockframework:spock-grails-support:0.7-groovy-2.0"
     }
 
     plugins {
@@ -36,9 +35,7 @@ grails.project.dependency.resolution = {
 
         compile ":database-migration:1.2"
         compile ':cache:1.0.1'
-        compile ':spock:0.7', {
-            exclude "spock-grails-support"
-        }
+        compile ':spock:0.7'
     }
 }
 

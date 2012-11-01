@@ -5,8 +5,9 @@ interface MediaSource {
     String getLocation()
     String getDescription()
 
-    static class NameRequired extends RuntimeException {}
-    static class DuplicateName extends RuntimeException {}
-    static class LocationRequired extends RuntimeException {}
-    static class DuplicateLocation extends RuntimeException {}
+    static abstract class RejectedField extends RuntimeException {}
+    static class NameRequired extends RejectedField {}
+    static class DuplicateName extends RejectedField {}
+    static class LocationRequired extends RejectedField {}
+    static class DuplicateLocation extends RejectedField {}
 }

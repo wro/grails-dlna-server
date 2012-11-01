@@ -8,9 +8,9 @@ class GormMediaSourceRepository implements MediaSourceRepository {
 
     @Override
     void create(MediaSource mediaSource) {
-        def entity = new MediaSourceWrapper(delegate:  new Domain(mediaSource))
+        def entity = new MediaSourceWrapper(delegate: new Domain(mediaSource))
         entity.check()
-        entity.save()
+        entity.delegate.save()
     }
 
     @Override
@@ -27,7 +27,7 @@ class GormMediaSourceRepository implements MediaSourceRepository {
         @Delegate Domain delegate
 
         void check() {
-            if (!validate()) {
+            if (!delegate.validate()) {
                 if (nameRequired) throw new MediaSource.NameRequired()
                 if (locationRequired) throw new MediaSource.LocationRequired()
                 if (duplicateName) throw new MediaSource.DuplicateName()
@@ -68,7 +68,7 @@ class GormMediaSourceRepository implements MediaSourceRepository {
         }
 
         private boolean checkField(String code, String field) {
-            errors.fieldErrors.any { it.code == code && it.field == field }
+            delegate.errors.fieldErrors.any { it.code == code && it.field == field }
         }
     }
 }

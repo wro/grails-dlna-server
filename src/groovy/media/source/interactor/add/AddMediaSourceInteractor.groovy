@@ -12,7 +12,7 @@ class AddMediaSourceInteractor implements AddMediaSource {
         try {
             repository.create(input)
             presenter.addedMediaSource()
-        } catch (MediaSource.NameRequired | MediaSource.LocationRequired | MediaSource.DuplicateName | MediaSource.DuplicateLocation e) {
+        } catch (MediaSource.RejectedField e) {
             presenter.rejectedField(e)
         }
     }
