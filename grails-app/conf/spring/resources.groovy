@@ -1,5 +1,6 @@
 import media.source.interactor.add.AddMediaSourceInteractor
 import media.source.interactor.list.ListMediaSourcesInteractor
+import media.source.interactor.remove.RemoveMediaSourceInteractor
 import media.source.repository.gorm.GormMediaSourceRepository
 import media.source.interactor.add.AddMediaSourceInteractor
 
@@ -12,4 +13,5 @@ beans = {
 
     addMediaSource(AddMediaSourceInteractor, byType)
     listMediaSources(ListMediaSourcesInteractor, byType)
+    removeMediaSource(RemoveMediaSourceInteractor, byType)
 }
