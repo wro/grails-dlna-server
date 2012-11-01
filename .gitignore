@@ -1,7 +1,7 @@
 .classpath
 .project
-.iml
 .idea
+*.iml
 out/
 classes/
-
+target/

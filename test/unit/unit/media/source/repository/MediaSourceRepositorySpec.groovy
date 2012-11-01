@@ -1,11 +1,12 @@
-package media.source.repository
+package unit.media.source.repository
 
 import media.source.MediaSource
+import media.source.repository.MediaSourceRepository
 import spock.lang.Specification
 
-import static media.source.fixtures.MediaSourceFixtures.getAlternateMediaSource
-import static media.source.fixtures.MediaSourceFixtures.getDuplicateLocation
-import static media.source.fixtures.MediaSourceFixtures.getValidMediaSource
+import static unit.media.source.fixtures.MediaSourceFixtures.getAlternateMediaSource
+import static unit.media.source.fixtures.MediaSourceFixtures.getDuplicateLocation
+import static unit.media.source.fixtures.MediaSourceFixtures.getValidMediaSource
 
 abstract class MediaSourceRepositorySpec extends Specification {
 

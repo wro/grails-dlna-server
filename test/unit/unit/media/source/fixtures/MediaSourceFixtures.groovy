@@ -1,4 +1,4 @@
-package media.source.fixtures
+package unit.media.source.fixtures
 
 import media.source.MediaSource
 
@@ -6,6 +6,14 @@ class MediaSourceFixtures {
 
     static MediaSource getValidMediaSource() {
         new MediaSourceFixture(name: 'name', location: 'location', description: 'description')
+    }
+
+    static MediaSource getNameRequired() {
+        new MediaSourceFixture(location: 'location', description: 'description')
+    }
+
+    static MediaSource getLocationRequired() {
+        new MediaSourceFixture(name: 'name', description: 'description')
     }
 
     static MediaSource getDuplicateLocation() {
