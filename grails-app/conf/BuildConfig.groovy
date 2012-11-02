@@ -15,12 +15,6 @@ grails.project.dependency.resolution = {
         mavenRepo('http://nexus.bonos.be:9090/content/groups/public')
         mavenLocal()
     }
-    credentials {
-        realm = 'Sonatype Nexus Repository Manager'
-        host = 'nexus.bonos.be'
-        username = 'wrombaut'
-        password = 'pIggy12fRog'
-    }
 
     dependencies {
         runtime 'mysql:mysql-connector-java:5.1.20'
