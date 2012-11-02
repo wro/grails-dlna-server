@@ -1,6 +1,7 @@
 class UrlMappings {
 
 	static mappings = {
-		"/media-source"(resource: 'mediaSourceResource')
+        "/rest/media-source/$name"(resource: 'mediaSourceResource')
+		"/rest/media-source"(resource: 'mediaSourceResource')
 	}
 }
