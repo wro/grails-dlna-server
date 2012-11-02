@@ -9,7 +9,17 @@ class RemoveMediaSourceInteractor implements RemoveMediaSource {
 
     @Override
     void remove(MediaSource mediaSource, RemoveMediaSource.Presenter presenter) {
-        repository.remove(mediaSource.name, mediaSource.location)
-        presenter.removed()
+        withNotFound(presenter) {
+            repository.remove(mediaSource.name, mediaSource.location)
+            presenter.removed()
+        }
+    }
+
+    private static void withNotFound(RemoveMediaSource.Presenter presenter, Closure c) {
+        try {
+            c()
+        } catch (MediaSource.NotFound ignored) {
+            presenter.mediaSourceNotFound()
+        }
     }
 }

@@ -10,4 +10,5 @@ interface MediaSource {
     static class DuplicateName extends RejectedField {}
     static class LocationRequired extends RejectedField {}
     static class DuplicateLocation extends RejectedField {}
+    static class NotFound extends RuntimeException {}
 }

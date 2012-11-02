@@ -100,12 +100,21 @@ class MediaSourceResourceControllerSpec extends Specification {
         0 * _
     }
 
-    def "test"() {
+    def "handle removal"() {
         when:
         controller.removed()
 
         then:
         response.status == 204
+        response.text == ''
+    }
+
+    def "test"() {
+        when:
+        controller.mediaSourceNotFound()
+
+        then:
+        response.status == 404
         response.text == ''
     }
 

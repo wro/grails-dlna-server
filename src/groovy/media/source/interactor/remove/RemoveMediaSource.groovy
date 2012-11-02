@@ -7,5 +7,6 @@ interface RemoveMediaSource {
 
     interface Presenter {
         void removed()
+        void mediaSourceNotFound()
     }
 }

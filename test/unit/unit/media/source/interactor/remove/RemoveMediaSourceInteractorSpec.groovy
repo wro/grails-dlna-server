@@ -31,4 +31,13 @@ class RemoveMediaSourceInteractorSpec extends Specification {
         0 * _
     }
 
+    def "test"() {
+        when:
+        interactor.remove(validMediaSource, presenter)
+
+        then:
+        1 * presenter.mediaSourceNotFound()
+        0 * _
+    }
+
 }

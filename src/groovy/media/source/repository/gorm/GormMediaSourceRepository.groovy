@@ -20,7 +20,9 @@ class GormMediaSourceRepository implements MediaSourceRepository {
 
     @Override
     void remove(String name, String location) {
-        Domain.findByNameAndLocation(name, location)?.delete()
+        def domain = Domain.findByNameAndLocation(name, location)
+        if (!domain) throw new MediaSource.NotFound()
+        domain.delete()
     }
 
     class MediaSourceWrapper implements MediaSource {

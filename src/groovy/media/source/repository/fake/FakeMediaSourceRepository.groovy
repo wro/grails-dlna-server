@@ -17,6 +17,7 @@ class FakeMediaSourceRepository implements MediaSourceRepository {
     @Override
     void remove(String name, String location) {
         def toRemove = mediaSources.find { it.name == name && it.location == location }
+        if (!toRemove) throw new MediaSource.NotFound()
         mediaSources.remove(toRemove)
     }
 

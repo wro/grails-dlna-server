@@ -90,10 +90,17 @@ abstract class MediaSourceRepositorySpec extends Specification {
 
         when:
         repository.remove(validMediaSource.name, validMediaSource.location)
-        repository.remove('wrong', alternateMediaSource.location)
 
         then:
         repository.mediaSources.size() == 1
+    }
+
+    def "when removing a media source that does not exist throw not found"() {
+        when:
+        repository.remove(validMediaSource.name, 'invalid')
+
+        then:
+        thrown MediaSource.NotFound
     }
 
 }

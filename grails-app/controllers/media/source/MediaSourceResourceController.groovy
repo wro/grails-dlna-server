@@ -54,6 +54,12 @@ class MediaSourceResourceController implements AddMediaSource.Presenter, ListMed
         render(text: '')
     }
 
+    @Override
+    void mediaSourceNotFound() {
+        response.status = 404
+        render(text: '')
+    }
+
     class Input implements MediaSource {
         String name
         String location
