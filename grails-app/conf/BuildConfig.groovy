@@ -12,12 +12,14 @@ grails.project.dependency.resolution = {
 
     repositories {
         inherits true
-        mavenRepo('http://nexus.bonos.be:9090/content/groups/public')
+        mavenCentral()
         mavenLocal()
     }
 
     dependencies {
         runtime 'mysql:mysql-connector-java:5.1.20'
+
+        compile 'dlna-server:core:dev-SNAPSHOT'
     }
 
     plugins {

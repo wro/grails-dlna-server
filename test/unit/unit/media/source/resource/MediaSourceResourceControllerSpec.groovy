@@ -8,8 +8,8 @@ import media.source.interactor.list.ListMediaSources
 import media.source.interactor.remove.RemoveMediaSource
 import spock.lang.Specification
 
-import static unit.media.source.fixtures.MediaSourceFixtures.getAlternateMediaSource
-import static unit.media.source.fixtures.MediaSourceFixtures.getValidMediaSource
+import static media.source.fixtures.MediaSourceFixtures.getAlternateMediaSource
+import static media.source.fixtures.MediaSourceFixtures.getValidMediaSource
 
 @TestFor(MediaSourceResourceController)
 class MediaSourceResourceControllerSpec extends Specification {
